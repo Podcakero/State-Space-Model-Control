@@ -1,0 +1,16 @@
+name: Update submodule on Parent Repo
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  update_submodule:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Repository Dispatch
+          uses: peter-evans/repository-dispatch@v3
+          with:
+            token: ${{ secrets.PAT }}
+            repository: Podcakero/GaCo-2026-Testing
+            event-type: submodule-update
